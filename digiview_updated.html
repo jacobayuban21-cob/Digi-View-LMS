@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digi-View LMS</title>
+
+    <link rel="stylesheet" href="digiview_updated.css">
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+
+<div id="authPage" class="auth-page">
+
+    <div class="auth-decoration code-one">&lt;html&gt;</div>
+    <div class="auth-decoration code-two">{ HTML }</div>
+    <div class="auth-decoration code-three">&lt;/&gt;</div>
+
+    <div class="auth-card">
+
+        <div class="logo large">
+            <div class="logo-icon">&lt;/&gt;</div>
+            <div>
+                <h1>Digi<span>View</span></h1>
+                <small>HTML Learning System</small>
+            </div>
+        </div>
+
+        <div id="loginBox">
+
+            <h2>Welcome back! 👋</h2>
+            <p class="auth-subtitle">
+                Continue your HTML learning journey.
+            </p>
+
+            <form id="loginForm">
+
+                <label>Username</label>
+                <input
+                    type="text"
+                    id="loginUsername"
+                    placeholder="Enter your username"
+                    required
+                >
+
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button class="primary-btn full" type="submit">
+                    Login →
+                </button>
+
+            </form>
+
+            <p class="switch-text">
+                Don't have an account?
+                <button id="showSignup" class="text-btn">
+                    Create one
+                </button>
+            </p>
+
+            <div class="demo-box">
+                <strong>Demo Account</strong><br>
+                Username: <b>student</b><br>
+                Password: <b>1234</b>
+            </div>
+
+        </div>
+
+
+        <!-- SIGN UP -->
+
+        <div id="signupBox" class="hidden">
+
+            <h2>Create your account 🚀</h2>
+
+            <p class="auth-subtitle">
+                Start learning HTML with Digi-View.
+            </p>
+
+            <form id="signupForm">
+
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    id="signupFullName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label>Age</label>
+                <input
+                    type="number"
+                    id="signupAge"
+                    placeholder="Enter your age"
+                    min="1"
+                    max="100"
+                    required
+                >
+
+                <label>Gender</label>
+                <select id="signupGender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label>Strand</label>
+                <input
+                    type="text"
+                    id="signupStrand"
+                    placeholder="e.g. TVL-ICT"
+                    required
+                >
+
+                <label>Grade &amp; Section</label>
+                <input
+                    type="text"
+                    id="signupGradeSection"
+                    placeholder="e.g. Grade 11 - ICT A"
+                    required
+                >
+
+                <label>Username</label>
+                <input
+                    type="text"
+                    id="signupUsername"
+                    placeholder="Create a username"
+                    required
+                >
+
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Create a password"
+                    required
+                >
+
+                <label>Confirm Password</label>
+                <input
+                    type="password"
+                    id="signupConfirm"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+                <button class="primary-btn full" type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="switch-text">
+                Already have an account?
+                <button id="showLogin" class="text-btn">
+                    Login
+                </button>
+            </p>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ================= MAIN LMS ================= -->
+
+<div id="app" class="app hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-icon">&lt;/&gt;</div>
+
+            <div>
+                <h2>Digi<span>View</span></h2>
+                <small>HTML LMS</small>
+            </div>
+        </div>
+
+
+        <nav>
+
+            <button class="nav-item active" data-page="dashboard">
+                <span>🏠</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-page="lessons">
+                <span>📚</span>
+                Lessons
+            </button>
+
+            <button class="nav-item" data-page="quiz">
+                <span>🧠</span>
+                Quiz
+            </button>
+
+            <button class="nav-item" data-page="achievements">
+                <span>🏆</span>
+                Achievements
+            </button>
+
+            <button class="nav-item" data-page="history">
+                <span>📊</span>
+                Quiz History
+            </button>
+
+            <button class="nav-item" data-page="profile">
+                <span>👤</span>
+                Profile
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="mini-user">
+
+                <div class="avatar" id="sideAvatar">
+                    S
+                </div>
+
+                <div>
+                    <strong id="sideUsername">
+                        Student
+                    </strong>
+
+                    <small id="sideLevel">
+                        Level 1
+                    </small>
+                </div>
+
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <span class="mobile-title">
+                    Digi-View
+                </span>
+
+                <span id="pageTitle">
+                    Dashboard
+                </span>
+            </div>
+
+
+            <div class="top-stats">
+
+                <div class="top-stat">
+                    <span>⚡</span>
+                    <strong id="topXP">0 XP</strong>
+                </div>
+
+                <div class="top-stat">
+                    <span>❤️</span>
+                    <strong id="topHearts">5</strong>
+                </div>
+
+                <div class="avatar small" id="topAvatar">
+                    S
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE -->
+
+        <section id="pageContent" class="page-content">
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= QUIZ MODAL ================= -->
+
+<div id="quizModal" class="modal hidden">
+
+    <div class="quiz-container">
+
+        <div class="quiz-header">
+
+            <div>
+                <span class="quiz-label">
+                    HTML CHALLENGE
+                </span>
+
+                <h2 id="quizDifficulty">
+                    Easy Quiz
+                </h2>
+            </div>
+
+            <button id="closeQuiz" class="close-btn">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="quiz-stats">
+
+            <div>
+                <span>Question</span>
+                <strong>
+                    <span id="currentQuestion">1</span>/<span id="totalQuestions">25</span>
+                </strong>
+            </div>
+
+            <div>
+                <span>Score</span>
+                <strong id="quizScore">0</strong>
+            </div>
+
+            <div>
+                <span>Combo</span>
+                <strong id="quizCombo">0 🔥</strong>
+            </div>
+
+            <div>
+                <span>Hearts</span>
+                <strong id="quizHearts">❤️❤️❤️❤️❤️</strong>
+            </div>
+
+        </div>
+
+
+        <div class="quiz-progress">
+            <div id="quizProgressBar"></div>
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question-number" id="questionNumber">
+                QUESTION 01
+            </div>
+
+            <h2 id="questionText">
+                Question goes here
+            </h2>
+
+            <div id="answers" class="answers">
+            </div>
+
+            <div id="quizFeedback" class="quiz-feedback">
+            </div>
+
+            <button
+                id="nextQuestion"
+                class="primary-btn next-btn hidden"
+            >
+                Next Question →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast" class="toast">
+    <span id="toastIcon">✓</span>
+    <span id="toastMessage">Success!</span>
+</div>
+
+
+<script src="digiview_updated.js"></script>
+
+</body>
+</html>
